@@ -1,9 +1,9 @@
 const server = require("http").createServer();
 const io = require("socket.io")(server);
 
-const PORT = 8080;
+const PORT = 5500;
 server.listen(PORT, "127.0.0.1", () => {
-  console.log("listening on port 8000");
+  console.log(`listening on port ${PORT}`);
 });
 
 io.on("connection", (socket) => {
