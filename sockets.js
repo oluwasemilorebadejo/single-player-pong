@@ -1,7 +1,8 @@
 let playerReadyCounter = 0;
 
 function listen(io) {
-  io.on("connection", (socket) => {
+  const pongNameSpace = io.of("/pong");
+  pongNameSpace.on("connection", (socket) => {
     //we only have access to socket when a connection event is handled
     console.log("a user connected", socket.id);
 
@@ -11,7 +12,7 @@ function listen(io) {
       playerReadyCounter++;
 
       if (playerReadyCounter % 2 === 0) {
-        io.emit("startGame", socket.id);
+        pongNameSpace.emit("startGame", socket.id);
       }
     });
 
