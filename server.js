@@ -1,4 +1,6 @@
-const server = require("http").createServer();
+const api = require("./api");
+
+const server = require("http").createServer(api);
 const io = require("socket.io")(server);
 
 const sockets = require("./sockets");
